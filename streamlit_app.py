@@ -43,3 +43,11 @@ ee.Initialize(EE_CREDENTIALS)
 st.write("____________________________________ Initalised______________________________________________")
 ################
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
+import geemap
+import geopandas as gpd
+PoI = ee.Geometry.Point(40.512714, 21.437273) # Cast Lat and Long into required class
+RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
+
+filtered = BldSA.filterBounds(RoI)
+transparent_df = geemap.ee_to_geopandas(filtered)
+transparent_df.plot()
