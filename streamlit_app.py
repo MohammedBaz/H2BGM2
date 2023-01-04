@@ -56,3 +56,17 @@ def GetInformtionFromGoogleEarth(ImageCollectionName,ListofBands,Resultion,Start
   resultsdf['datetime'] = pandas.to_datetime(resultsdf['time'], unit='ms') # Convert the time field into a datetime.
   resultsdf = resultsdf[['time','datetime',  *ListofBands]]
   return resultsdf
+
+
+
+ImageCollectionName='MODIS/006/MOD13A2'
+ListofBands=['NDVI', 'EVI']
+Resultion=1000
+StartDate='2020-10-19'
+EndDate='2021-10-1'
+Latitude=21.0807514
+Longitude= 40.2975893
+
+results=GetInformtionFromGoogleEarth("NASA/NEX-DCP30",["pr"],4638.3,StartDate,EndDate,Latitude,Longitude)
+
+st.write(results)
