@@ -40,3 +40,4 @@ with open(os.path.join(os.getcwd(), "key.json"), 'w') as outfile:
 import ee
 EE_CREDENTIALS = ee.ServiceAccountCredentials(st.secrets['client_email'], PathtoKeyFile)
 ee.Initialize(EE_CREDENTIALS)
+st.write("____________________________________ Initalised______________________________________________")
