@@ -51,3 +51,8 @@ RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 k
 filtered = BldSA.filterBounds(RoI)
 transparent_df = geemap.ee_to_geopandas(filtered)
 st.write(transparent_df)
+
+from matplotlib import pyplot as plt
+transparent_df.plot()
+plt.axis("off")
+st.pyplot()
