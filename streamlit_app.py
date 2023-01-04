@@ -36,7 +36,7 @@ def GetBldFtPrint(RoI):
   transparent_df = geemap.ee_to_geopandas(filtered)
   #st.write((len(transparent_df)))
   from matplotlib import pyplot as plt
-  transparent_df.plot()
+  transparent_df.explore()
   st.pyplot()
 
 ################
