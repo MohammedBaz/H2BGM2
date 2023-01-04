@@ -54,5 +54,4 @@ st.write(transparent_df)
 
 from matplotlib import pyplot as plt
 transparent_df.explore(legend=True)
-plt.axis("off")
 st.pyplot()
