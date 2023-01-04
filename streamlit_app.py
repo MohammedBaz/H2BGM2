@@ -7,7 +7,7 @@ def get_pos(lat,lng):
 
 m = fl.Map()
 
-m.add_child(fl.LatLngPopup())
+#m.add_child(fl.LatLngPopup())
 
 map = st_folium(m, height=350, width=700)
 
