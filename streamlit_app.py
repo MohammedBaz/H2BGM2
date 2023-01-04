@@ -10,13 +10,10 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 #m.add_child(fl.LatLngPopup())
 
 map = st_folium(m, height=350, width=700)
-
-
-data=12345
-data = map['last_clicked']['lat'],map['last_clicked']['lng']
+try:
+  data = map['last_clicked']['lat'],map['last_clicked']['lng']
+except:
+  print("An exception occurred")
 
 if data is not None:
     st.write(data)
-else:
-    pass
-    
