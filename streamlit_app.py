@@ -1,7 +1,7 @@
 import folium as fl
 from streamlit_folium import st_folium
 import streamlit as st
-
+import pandas
 def get_pos(lat,lng):
     return lat,lng
 
