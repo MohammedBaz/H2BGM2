@@ -45,7 +45,7 @@ def get_pos(lat,lng):
 
 m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 
-#m.add_child(fl.LatLngPopup())
+m.add_child(fl.LatLngPopup())
 data=123456
 map = st_folium(m, height=350, width=700)
 try:
