@@ -12,6 +12,9 @@ data=123456
 map = st_folium(m, height=350, width=700)
 try:
   data = map['last_clicked']['lat'],map['last_clicked']['lng']
+  PoI = ee.Geometry.Point(data) # Cast Lat and Long into required class
+  RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
+  GetBldFtPrint(RoI)
 except:
   print("An exception occurred")
 
@@ -45,13 +48,11 @@ st.write("____________________________________ Initalised_______________________
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
 import geemap
 import geopandas as gpd
-PoI = ee.Geometry.Point(40.512714, 21.437273) # Cast Lat and Long into required class
-RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
 
-filtered = BldSA.filterBounds(RoI)
-transparent_df = geemap.ee_to_geopandas(filtered)
-st.write(transparent_df)
-
-from matplotlib import pyplot as plt
-transparent_df.plot()
-st.pyplot()
+def GetBldFtPrint(RoI):
+    filtered = BldSA.filterBounds(RoI)
+    transparent_df = geemap.ee_to_geopandas(filtered)
+    st.write(transparent_df)
+    from matplotlib import pyplot as plt
+    transparent_df.plot()
+    st.pyplot()
