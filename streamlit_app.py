@@ -34,10 +34,10 @@ def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   #st.write(filtered)
   transparent_df = geemap.ee_to_geopandas(filtered)
-  st.write((len(transparent_df)))
-  #from matplotlib import pyplot as plt
-  #transparent_df.plot()
-  #st.pyplot()
+  #st.write((len(transparent_df)))
+  from matplotlib import pyplot as plt
+  transparent_df.plot()
+  st.pyplot()
 
 ################
 def get_pos(lat,lng):
