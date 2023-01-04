@@ -10,7 +10,7 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10,tiles="Stamen Terrain")
 #m.add_child(fl.LatLngPopup())
 
 map = st_folium(m, height=350, width=700)
-folium.CircleMarker(
+fl.CircleMarker(
     location=[21.437273,40.512714],
     radius=50,
     popup="Laurelhurst Park",
