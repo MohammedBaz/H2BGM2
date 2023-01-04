@@ -27,6 +27,7 @@ with open(os.path.join(os.getcwd(), "key.json"), 'w') as outfile:
 EE_CREDENTIALS = ee.ServiceAccountCredentials(st.secrets['client_email'], PathtoKeyFile)
 ee.Initialize(EE_CREDENTIALS)
 st.write("____________________________________ Initalised______________________________________________")
+BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
 ################
 def get_pos(lat,lng):
     return lat,lng
@@ -49,7 +50,7 @@ if data is not None:
 ################
 
 ################
-BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
+
 
 
 def GetBldFtPrint(RoI):
