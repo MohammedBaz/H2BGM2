@@ -17,7 +17,7 @@ fl.CircleMarker(
     color="#3186cc",
     fill=True,
     fill_color="#3186cc",
-).add_to(map)
+).add_to(m)
 
 data=12345
 data = get_pos(map['last_clicked']['lat'],map['last_clicked']['lng'])
