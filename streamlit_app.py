@@ -11,7 +11,7 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10,tiles="Stamen Terrain")
 
 map = st_folium(m, height=350, width=700)
 folium.CircleMarker(
-    location=[45.5215, -122.6261],
+    location=[21.437273,40.512714],
     radius=50,
     popup="Laurelhurst Park",
     color="#3186cc",
