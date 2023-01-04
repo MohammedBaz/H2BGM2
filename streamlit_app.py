@@ -13,7 +13,7 @@ map = st_folium(m, height=350, width=700)
 
 
 data=12345
-data = get_pos(map['last_clicked']['lat'],map['last_clicked']['lng'])
+data = map['last_clicked']['lat'],map['last_clicked']['lng']
 
 if data is not None:
     st.write(data)
