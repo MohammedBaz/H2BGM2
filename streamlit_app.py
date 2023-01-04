@@ -7,6 +7,7 @@ import os
 import geemap
 import geopandas as gpd
 import ee
+from matplotlib import pyplot as plt
 
 dictionary = {'type':st.secrets['type'],
               'project_id':st.secrets['project_id'],
@@ -35,10 +36,9 @@ def GetBldFtPrint(RoI):
   #st.write(filtered)
   transparent_df = geemap.ee_to_geopandas(filtered)
   #st.write((len(transparent_df)))
-  from matplotlib import pyplot as plt
-  transparent_df.explore()
-  st.pyplot()
-
+  fig, ax = plt.subplots()
+  transparent_df.plot()
+  st.pyplot(fig)
 ################
 def get_pos(lat,lng):
     return lat,lng
