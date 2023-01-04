@@ -5,7 +5,7 @@ import streamlit as st
 def get_pos(lat,lng):
     return lat,lng
 
-m = fl.Map(location=[40.512714, 21.437273])
+m = fl.Map(location=[21.437273,40.512714])
 
 #m.add_child(fl.LatLngPopup())
 
