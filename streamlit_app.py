@@ -45,7 +45,7 @@ st.write("____________________________________ Initalised_______________________
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
 import geemap
 import geopandas as gpd
-PoI = ee.Geometry.Point(data) # Cast Lat and Long into required class
+PoI = ee.Geometry.Point(map['last_clicked']['lat'],map['last_clicked']['lng']) # Cast Lat and Long into required class
 RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
 
 filtered = BldSA.filterBounds(RoI)
