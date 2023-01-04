@@ -18,7 +18,7 @@ data = get_pos(map['last_clicked']['lat'],map['last_clicked']['lng'])
 if data is not None:
     st.write(data)
     fl.CircleMarker(
-    location=[21.437273,40.512714],
+    location=data,
     radius=50,
     popup="Laurelhurst Park",
     color="#3186cc",
