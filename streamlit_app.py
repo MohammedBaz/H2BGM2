@@ -28,6 +28,16 @@ EE_CREDENTIALS = ee.ServiceAccountCredentials(st.secrets['client_email'], Pathto
 ee.Initialize(EE_CREDENTIALS)
 st.write("____________________________________ Initalised______________________________________________")
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
+
+
+def GetBldFtPrint(RoI):
+    filtered = BldSA.filterBounds(RoI)
+    transparent_df = geemap.ee_to_geopandas(filtered)
+    st.write(transparent_df)
+    from matplotlib import pyplot as plt
+    transparent_df.plot()
+    st.pyplot()
+
 ################
 def get_pos(lat,lng):
     return lat,lng
@@ -54,10 +64,3 @@ if data is not None:
 
 
 
-def GetBldFtPrint(RoI):
-    filtered = BldSA.filterBounds(RoI)
-    transparent_df = geemap.ee_to_geopandas(filtered)
-    st.write(transparent_df)
-    from matplotlib import pyplot as plt
-    transparent_df.plot()
-    st.pyplot()
