@@ -32,12 +32,12 @@ BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of
 
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
-  st.write(filtered)
+  #st.write(filtered)
   transparent_df = geemap.ee_to_geopandas(filtered)
-  #st.write(transparent_df)
-  from matplotlib import pyplot as plt
-  transparent_df.plot()
-  st.pyplot()
+  st.write(transparent_df)
+  #from matplotlib import pyplot as plt
+  #transparent_df.plot()
+  #st.pyplot()
 
 ################
 def get_pos(lat,lng):
