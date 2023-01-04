@@ -53,6 +53,6 @@ transparent_df = geemap.ee_to_geopandas(filtered)
 st.write(transparent_df)
 
 from matplotlib import pyplot as plt
-transparent_df.explore()
+transparent_df.explore(legend=True)
 plt.axis("off")
 st.pyplot()
