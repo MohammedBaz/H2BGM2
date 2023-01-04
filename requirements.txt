@@ -2,3 +2,5 @@ folium
 requests
 streamlit_folium
 earthengine-api
+geemap
+geopandas
