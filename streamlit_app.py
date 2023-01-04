@@ -5,7 +5,7 @@ import streamlit as st
 def get_pos(lat,lng):
     return lat,lng
 
-m = fl.Map(location=[21.437273,40.512714],zoom_start=10,tiles="Stamen Terrain")
+m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 
 #m.add_child(fl.LatLngPopup())
 
