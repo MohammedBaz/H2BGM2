@@ -10,6 +10,14 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10,tiles="Stamen Terrain")
 #m.add_child(fl.LatLngPopup())
 
 map = st_folium(m, height=350, width=700)
+folium.CircleMarker(
+    location=[45.5215, -122.6261],
+    radius=50,
+    popup="Laurelhurst Park",
+    color="#3186cc",
+    fill=True,
+    fill_color="#3186cc",
+).add_to(m)
 
 data=12345
 data = get_pos(map['last_clicked']['lat'],map['last_clicked']['lng'])
