@@ -11,7 +11,7 @@ m.add_child(fl.LatLngPopup())
 
 map = st_folium(m, height=350, width=700)
 
-data=xx
+data=12345
 data = get_pos(map['last_clicked']['lat'],map['last_clicked']['lng'])
 
 if data is not None:
