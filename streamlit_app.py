@@ -2,17 +2,14 @@ import folium as fl
 from streamlit_folium import st_folium
 import streamlit as st
 import pandas
-import json  
-import os 
 import geemap
 import geopandas as gpd
 import ee
 from matplotlib import pyplot as plt
 from EEBkGr import EEAuth
+
 EEAuth()
-
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
-
 
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
