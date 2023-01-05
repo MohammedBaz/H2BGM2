@@ -10,7 +10,7 @@ from EEBkGr import EEAuth
 
 EEAuth()
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
-
+st.write("الرجاء الضغط علي الخريطه لتوليد الخصائص العمرانية")
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   #st.write(filtered)
