@@ -25,7 +25,7 @@ def get_pos(lat,lng):
 
 m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 
-tile = folium.TileLayer(
+tile = fl.TileLayer(
         tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
         attr = 'Esri',
         name = 'Esri Satellite',
