@@ -37,7 +37,7 @@ def GetBldFtPrint(RoI):
   transparent_df = geemap.ee_to_geopandas(filtered)
   #st.write((len(transparent_df)))
   fig, ax = plt.subplots()
-  transparent_df.explore(ax=ax)
+  transparent_df.plot(ax=ax)
   st.pyplot(fig)
 ################
 def get_pos(lat,lng):
