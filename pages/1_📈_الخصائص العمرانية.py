@@ -23,7 +23,15 @@ def GetBldFtPrint(RoI):
 def get_pos(lat,lng):
     return lat,lng
 
-m = fl.Map(location=[21.437273,40.512714],zoom_start=10, TileLayer='Stamen.Terrain')
+m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
+
+tile = folium.TileLayer(
+        tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        attr = 'Esri',
+        name = 'Esri Satellite',
+        overlay = False,
+        control = True
+       ).add_to(m)
 
 m.add_child(fl.LatLngPopup())
 data=123456
