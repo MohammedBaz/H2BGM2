@@ -43,7 +43,7 @@ def GetBldFtPrint(RoI):
 def get_pos(lat,lng):
     return lat,lng
 
-m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
+m = fl.Map(location=[21.437273,40.512714],zoom_start=10, tile='OpenStreetMap.Mapnik')
 
 m.add_child(fl.LatLngPopup())
 data=123456
