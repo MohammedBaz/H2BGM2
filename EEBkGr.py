@@ -1,6 +1,7 @@
 import json  
 import os 
 import ee
+import streamlit as st
 def EEAuth():
   dictionary = {'type':st.secrets['type'],
               'project_id':st.secrets['project_id'],
