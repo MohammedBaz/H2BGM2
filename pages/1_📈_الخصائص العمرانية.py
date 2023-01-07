@@ -10,6 +10,8 @@ from EEBkGr import EEAuth
 import mpld3
 import streamlit.components.v1 as components
 
+col1, col2 = st.columns(2)
+
 EEAuth()
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
 st.write("الرجاء الضغط علي الخريطه لتوليد الخصائص العمرانية")
@@ -22,9 +24,11 @@ def GetBldFtPrint(RoI):
   #fig=plt.figure()
   transparent_df.plot(ax=ax)
   transparent_df.plot()
-  st.pyplot(fig)
-  fig_html = mpld3.fig_to_html(fig)
-  components.html(fig_html, height=600)
+  with col2:
+    st.pyplot(fig)
+  
+  #fig_html = mpld3.fig_to_html(fig)
+  #components.html(fig_html, height=600)
 ################
 def get_pos(lat,lng):
     return lat,lng
@@ -42,7 +46,6 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 m.add_child(fl.LatLngPopup())
 data=123456
 
-col1, col2 = st.columns(2)
 with col1:
   map = st_folium(m, height=350, width=350)
 try:
