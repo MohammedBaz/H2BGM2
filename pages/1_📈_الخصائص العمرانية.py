@@ -27,7 +27,8 @@ def GetBldFtPrint(RoI):
   with col2:
     st.write("التوزيع العمراني")
     st.pyplot(fig)
-  
+  if len(transparent_df)>0:
+    st.write("عدد المباني",len(transparent_df))
   #fig_html = mpld3.fig_to_html(fig)
   #components.html(fig_html, height=600)
 ################
@@ -62,5 +63,4 @@ except:
 #if data is not None:
  #   st.write(data)
 ################
-
 ################
