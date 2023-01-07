@@ -71,8 +71,8 @@ try:
 except:
   print("An exception occurred")
 G = ox.graph_from_point((map['last_clicked']['lat'],map['last_clicked']['lng']), dist=1000, network_type='all')
-ox.plot_graph(G)
-  
+fig, ax = plt.subplots()
+ox.plot_graph(G)  
   
 #if data is not None:
  #   st.write(data)
