@@ -25,7 +25,7 @@ def GetBldFtPrint(RoI):
   transparent_df.plot(ax=ax)
   transparent_df.plot()
   with col2:
-    st.header("الرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
+    st.write("التوزيع العمراني")
     st.pyplot(fig)
   
   #fig_html = mpld3.fig_to_html(fig)
@@ -48,7 +48,7 @@ m.add_child(fl.LatLngPopup())
 data=123456
 
 with col1:
-  st.header("التوزيع العمراني")
+  st.write("الرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
   map = st_folium(m, height=350, width=350)
 try:
   data = map['last_clicked']['lat'],map['last_clicked']['lng']
