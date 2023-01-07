@@ -7,6 +7,8 @@ import geopandas as gpd
 import ee
 from matplotlib import pyplot as plt
 from EEBkGr import EEAuth
+import mpld3
+import streamlit.components.v1 as components
 
 EEAuth()
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
@@ -19,6 +21,8 @@ def GetBldFtPrint(RoI):
   fig, ax = plt.subplots()
   transparent_df.plot(ax=ax)
   st.pyplot(fig)
+  fig_html = mpld3.fig_to_html(fig)
+  components.html(fig_html, height=600)
 ################
 def get_pos(lat,lng):
     return lat,lng
