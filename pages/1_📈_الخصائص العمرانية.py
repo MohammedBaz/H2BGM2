@@ -42,14 +42,9 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 m.add_child(fl.LatLngPopup())
 data=123456
 
-
-map = st_folium(m, height=350, width=350)
-
 col1, col2 = st.columns(2)
-col1.header("لرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
-col1.map
-
-
+with col1:
+  map = st_folium(m, height=350, width=350)
 try:
   data = map['last_clicked']['lat'],map['last_clicked']['lng']
   PoI = ee.Geometry.Point(map['last_clicked']['lng'],map['last_clicked']['lat']) # Cast Lat and Long into required class
