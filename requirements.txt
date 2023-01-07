@@ -7,3 +7,4 @@ geopandas
 matplotlib
 mapclassify
 mpld3
+osmnx
