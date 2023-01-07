@@ -9,6 +9,7 @@ from matplotlib import pyplot as plt
 from EEBkGr import EEAuth
 import mpld3
 import streamlit.components.v1 as components
+import osmnx as  ox
 
 col1, col2 = st.columns(2)
 
@@ -69,7 +70,10 @@ try:
   GetBldFtPrint(RoI)
 except:
   print("An exception occurred")
-
+G = ox.graph_from_point((map['last_clicked']['lat'],map['last_clicked']['lng']), dist=1000, network_type='all')
+ox.plot_graph(G)
+  
+  
 #if data is not None:
  #   st.write(data)
 ################
