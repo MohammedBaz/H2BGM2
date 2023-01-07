@@ -41,6 +41,8 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 
 m.add_child(fl.LatLngPopup())
 data=123456
+col1, col2 = st.columns(2)
+
 map = st_folium(m, height=350, width=350)
 try:
   data = map['last_clicked']['lat'],map['last_clicked']['lng']
