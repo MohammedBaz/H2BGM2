@@ -29,7 +29,7 @@ def GetBldFtPrint(RoI):
     st.pyplot(fig)
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
-    st.write(len(transparent_df)," المساحات الكلية للمباني")
+    st.write(transparent_df['geometry'].area.sum()," المساحات الكلية للمباني")
     st.write(len(transparent_df),"نسبة الاراضي البيضاء")
   else:
     st.write("لا يوجد مباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
