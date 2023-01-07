@@ -36,6 +36,7 @@ def GetBldFtPrint(RoI):
     st.write(transparent_df['geometry'].area.sum()*1000000,"  نسبة المباني غير منتظمة الاضلاع")
     st.write(transparent_df['geometry'].area.sum()/1000000,"اقل مسافة بين مبنين")
     G = ox.graph_from_polygon(RoI, network_type='all')
+    st.write(G)
     fig, ax = plt.subplots()
     ox.plot_graph(G)  
     
