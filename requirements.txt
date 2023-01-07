@@ -6,3 +6,4 @@ geemap
 geopandas
 matplotlib
 mapclassify
+mpld3
