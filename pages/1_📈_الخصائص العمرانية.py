@@ -59,8 +59,8 @@ try:
 except:
   print("An exception occurred")
 
-if data is not None:
-    st.write(data)
+#if data is not None:
+ #   st.write(data)
 ################
 
 ################
