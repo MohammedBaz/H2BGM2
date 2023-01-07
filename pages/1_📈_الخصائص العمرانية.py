@@ -9,7 +9,7 @@ from matplotlib import pyplot as plt
 from EEBkGr import EEAuth
 import mpld3
 import streamlit.components.v1 as components
-import osmnx as  ox
+import osmnx as ox
 
 col1, col2 = st.columns(2)
 
@@ -35,7 +35,7 @@ def GetBldFtPrint(RoI):
     st.write(transparent_df['geometry'].area.mean(),"متوسط مساحات المباني ")
     st.write(transparent_df['geometry'].area.sum()*1000000,"  نسبة المباني غير منتظمة الاضلاع")
     st.write(transparent_df['geometry'].area.sum()/1000000,"اقل مسافة بين مبنين")
-    G = ox.graph_from_polygon(RoI), network_type='all')
+    G = ox.graph_from_polygon(RoI, network_type='all')
     fig, ax = plt.subplots()
     ox.plot_graph(G)  
     
