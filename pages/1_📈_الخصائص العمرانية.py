@@ -19,7 +19,7 @@ def GetBldFtPrint(RoI):
   transparent_df = geemap.ee_to_geopandas(filtered)
   #st.write((len(transparent_df)))
   fig, ax = plt.subplots()
-  fig=plt.figure()
+  #fig=plt.figure()
   transparent_df.plot(ax=ax)
   transparent_df.plot()
   st.pyplot(fig)
