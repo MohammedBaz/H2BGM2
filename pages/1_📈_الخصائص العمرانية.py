@@ -35,7 +35,9 @@ def GetBldFtPrint(RoI):
     st.write(transparent_df['geometry'].area.mean(),"متوسط مساحات المباني ")
     st.write(transparent_df['geometry'].area.sum()*1000000,"  نسبة المباني غير منتظمة الاضلاع")
     st.write(transparent_df['geometry'].area.sum()/1000000,"اقل مسافة بين مبنين")
-    
+    G = ox.graph_from_point((map['last_clicked']['lat'],map['last_clicked']['lng']), dist=1000, network_type='all')
+    fig, ax = plt.subplots()
+    ox.plot_graph(G)  
     
   else:
     st.write("لا يوجد مباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
@@ -70,9 +72,7 @@ try:
   GetBldFtPrint(RoI)
 except:
   print("An exception occurred")
-G = ox.graph_from_point((map['last_clicked']['lat'],map['last_clicked']['lng']), dist=1000, network_type='all')
-fig, ax = plt.subplots()
-ox.plot_graph(G)  
+
   
 #if data is not None:
  #   st.write(data)
