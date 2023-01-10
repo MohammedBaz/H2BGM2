@@ -27,7 +27,8 @@ def PlotFestureCollectiononFolium(FeatureCollectionName,FoliumCentLat,FoliumCent
        name='border',
        ).add_to(map)
   map.add_child(folium.LayerControl())
-  return(map)
+  map1 = st_folium(map, height=350, width=350)
+  #return(map)
 
 
 
