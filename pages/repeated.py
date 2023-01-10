@@ -16,6 +16,18 @@ col1, col2 = st.columns(2)
 
 EEAuth()
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
+def PlotFestureCollectiononFolium(FeatureCollectionName,FoliumCentLat,FoliumCentLng):
+  import folium
+  mapid = FeatureCollectionName.getMapId()
+  map = folium.Map(location=[FoliumCentLat,FoliumCentLng])
+  folium.TileLayer(
+       tiles=mapid['tile_fetcher'].url_format,
+       attr='Map Data &copy; <a href="https://earthengine.google.com/">Google Earth Engine</a>',
+       overlay=True,
+       name='border',
+       ).add_to(map)
+  map.add_child(folium.LayerControl())
+  return(map)
 
 
 
@@ -35,8 +47,8 @@ def GetBldFtPrint(RoI):
   fig_html.axis('off')
   with col2:
     st.write("التوزيع العمراني")
-    components.html(fig_html, height=600)
-    
+    #components.html(fig_html, height=600)
+    PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
     st.write(transparent_df['geometry'].area.sum()*1000000,"  المساحات الكلية للمباني")
@@ -80,18 +92,6 @@ except:
 
   
   
-def PlotFestureCollectiononFolium(FeatureCollectionName,FoliumCentLat,FoliumCentLng):
-  import folium
-  mapid = FeatureCollectionName.getMapId()
-  map = folium.Map(location=[FoliumCentLat,FoliumCentLng])
-  folium.TileLayer(
-       tiles=mapid['tile_fetcher'].url_format,
-       attr='Map Data &copy; <a href="https://earthengine.google.com/">Google Earth Engine</a>',
-       overlay=True,
-       name='border',
-       ).add_to(map)
-  map.add_child(folium.LayerControl())
-  return(map)
 
 PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
 
