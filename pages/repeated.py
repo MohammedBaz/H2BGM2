@@ -22,7 +22,9 @@ BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   transparent_df = geemap.ee_to_geopandas(filtered)
-  fig= transparent_df.plot() 
+  fig=plt.fig()
+  transparent_df.plot()
+  
   fig_html = mpld3.fig_to_html(fig)
   with col2:
     st.write("التوزيع العمراني")
