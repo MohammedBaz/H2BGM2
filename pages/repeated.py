@@ -23,8 +23,6 @@ def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   transparent_df = geemap.ee_to_geopandas(filtered)
   fig, ax = plt.subplots()
-  ax.axis('off')
-  ax.set_axis_off()
   transparent_df.plot(ax=ax)
   ax.set_axis_off()
   ax.axis('off')
@@ -32,10 +30,10 @@ def GetBldFtPrint(RoI):
   #plt.axis('off')
   #
   #ax.set_axis_off()
-  #fig_html = mpld3.fig_to_html(fig)
+  fig_html = mpld3.fig_to_html(fig,template_type="simple")
   with col2:
     st.write("التوزيع العمراني")
-    st.pyplot(fig)
+    components.html(fig_html, height=600)
     
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
