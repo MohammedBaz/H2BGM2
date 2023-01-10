@@ -27,7 +27,7 @@ def GetBldFtPrint(RoI):
   ax.axis('off')
   plt.axis('off')
   transparent_df.plot(ax=ax)
-
+  ax.set_axis_off()
   fig_html = mpld3.fig_to_html(fig)
   with col2:
     st.write("التوزيع العمراني")
