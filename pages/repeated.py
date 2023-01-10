@@ -9,11 +9,14 @@ from EEBkGr import EEAuth
 import mpld3
 import streamlit.components.v1 as components
 import osmnx as ox
+import ee
 
 col1, col2 = st.columns(2)
 
 EEAuth()
 BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of_Saudi_Arabia')
+
+
 
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
@@ -45,11 +48,6 @@ def GetBldFtPrint(RoI):
   #fig_html = mpld3.fig_to_html(fig)
   #components.html(fig_html, height=600)
 ################
-def get_pos(lat,lng):
-    return lat,lng
-
-m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
-
 #tile = fl.TileLayer(
 #        tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
 #        attr = 'Esri',
@@ -58,23 +56,17 @@ m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
 #        #control = True
 #       ).add_to(m)
 
-m.add_child(fl.LatLngPopup())
-data=123456
+
 
 with col1:
   st.write("الرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
+  m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
+  m.add_child(fl.LatLngPopup())
   map = st_folium(m, height=350, width=350)
+  
 try:
-  data = map['last_clicked']['lat'],map['last_clicked']['lng']
   PoI = ee.Geometry.Point(map['last_clicked']['lng'],map['last_clicked']['lat']) # Cast Lat and Long into required class
-  #st.write(PoI)
   RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
   GetBldFtPrint(RoI)
 except:
   print("An exception occurred")
-
-  
-#if data is not None:
- #   st.write(data)
-################
-################
