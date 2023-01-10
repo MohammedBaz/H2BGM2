@@ -93,7 +93,7 @@ except:
   
   
 
-PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
+#PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
 
 
 import folium
