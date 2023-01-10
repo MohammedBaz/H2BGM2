@@ -31,6 +31,8 @@ def GetBldFtPrint(RoI):
   #
   #ax.set_axis_off()
   fig_html = mpld3.fig_to_html(fig,template_type="simple")
+  fig_html.set_axis_off()
+  fig_html.axis('off')
   with col2:
     st.write("التوزيع العمراني")
     components.html(fig_html, height=600)
