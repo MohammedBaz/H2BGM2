@@ -62,7 +62,7 @@ with col1:
   st.write("الرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
   m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
   m.add_child(fl.LatLngPopup())
-    folium.Circle(radius=300,location = [21.437273,40.512714],color='#3388ff',
+    fl.Circle(radius=300,location = [21.437273,40.512714],color='#3388ff',
                   fill=True).add_to(map)
   map = st_folium(m, height=350, width=350)
   
