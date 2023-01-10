@@ -94,17 +94,3 @@ except:
   
 
 #PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
-
-
-import folium
-mapid = filtered.getMapId()
-map = folium.Map(location=[21.437273,40.512714])
-folium.TileLayer(
-    tiles=mapid['tile_fetcher'].url_format,
-    attr='Map Data &copy; <a href="https://earthengine.google.com/">Google Earth Engine</a>',
-    overlay=True,
-    name='border',
-  ).add_to(map)
-
-map.add_child(folium.LayerControl())
-map
