@@ -27,8 +27,7 @@ def PlotFestureCollectiononFolium(FeatureCollectionName,FoliumCentLat,FoliumCent
        name='border',
        ).add_to(map)
   map.add_child(folium.LayerControl())
-  map1 = st_folium(map, height=350, width=350)
-  #return(map)
+  return(map)
 
 
 
@@ -49,7 +48,10 @@ def GetBldFtPrint(RoI):
   with col2:
     st.write("التوزيع العمراني")
     #components.html(fig_html, height=600)
-    PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
+    xx=PlotFestureCollectiononFolium(filtered,21.437273,40.512714)
+    map = st_folium(xx, height=350, width=350)
+
+
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
     st.write(transparent_df['geometry'].area.sum()*1000000,"  المساحات الكلية للمباني")
