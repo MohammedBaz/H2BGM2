@@ -23,10 +23,8 @@ def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   transparent_df = geemap.ee_to_geopandas(filtered)
   fig, ax = plt.subplots()
-  #fig=plt.figure()
   transparent_df.plot(ax=ax)
-  #transparent_df.plot()
-  
+  plt.axis('off')
   fig_html = mpld3.fig_to_html(fig)
   with col2:
     st.write("التوزيع العمراني")
