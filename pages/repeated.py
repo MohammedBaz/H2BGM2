@@ -10,6 +10,7 @@ import mpld3
 import streamlit.components.v1 as components
 import osmnx as ox
 import ee
+import plotly.express as px
 
 col1, col2 = st.columns(2)
 
@@ -20,16 +21,17 @@ BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of
 
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
-  #st.write(filtered)
   transparent_df = geemap.ee_to_geopandas(filtered)
-  #st.write((len(transparent_df)))
-  fig, ax = plt.subplots()
-  #fig=plt.figure()
-  transparent_df.plot(ax=ax)
-  transparent_df.plot()
+  fig = px.choropleth(transparent_df, geojson=geojson, color="Bergeron",
+                    locations="district", featureidkey="properties.district",
+                    projection="mercator"
+                   )
+  fig.update_geos(fitbounds="locations", visible=False)
+  fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+  fig.show()
+  
   with col2:
     st.write("التوزيع العمراني")
-    st.pyplot(fig)
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
     st.write(transparent_df['geometry'].area.sum()*1000000,"  المساحات الكلية للمباني")
