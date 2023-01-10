@@ -23,8 +23,11 @@ def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   transparent_df = geemap.ee_to_geopandas(filtered)
   fig, ax = plt.subplots()
+  ax.axis('off')
+  ax.set_axis_off()
   transparent_df.plot(ax=ax)
   ax.set_axis_off()
+  ax.axis('off')
   #ax.axis('off')
   #plt.axis('off')
   #
