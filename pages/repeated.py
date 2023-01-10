@@ -66,9 +66,7 @@ with col1:
   
 try:
   PoI = ee.Geometry.Point(map['last_clicked']['lng'],map['last_clicked']['lat']) # Cast Lat and Long into required class
-  folium.Circle(radius=300,
-                  location = map['last_clicked']['lng'],map['last_clicked']['lat'],
-                  color='#3388ff',
+  folium.Circle(radius=300,location = [map['last_clicked']['lng'],map['last_clicked']['lat']],color='#3388ff',
                   fill=True).add_to(map)
   
   
