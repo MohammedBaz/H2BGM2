@@ -22,16 +22,13 @@ BldSA=ee.FeatureCollection('projects/sat-io/open-datasets/MSBuildings/Kingdom_of
 def GetBldFtPrint(RoI):
   filtered = BldSA.filterBounds(RoI)
   transparent_df = geemap.ee_to_geopandas(filtered)
-  fig = px.choropleth(transparent_df, geojson=geojson, color="Bergeron",
-                    locations="district", featureidkey="properties.district",
-                    projection="mercator"
-                   )
-  fig.update_geos(fitbounds="locations", visible=False)
-  fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-  fig.show()
-  
+  fig = plt.figure() 
+  transparent_df.plot() 
+  fig_html = mpld3.fig_to_html(fig)
   with col2:
     st.write("التوزيع العمراني")
+    components.html(fig_html, height=350)
+    
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
     st.write(transparent_df['geometry'].area.sum()*1000000,"  المساحات الكلية للمباني")
