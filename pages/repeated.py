@@ -30,7 +30,7 @@ def GetBldFtPrint(RoI):
   fig_html = mpld3.fig_to_html(fig)
   with col2:
     st.write("التوزيع العمراني")
-    components.html(fig_html, height=350)
+    components.html(fig_html, height=600)
     
   if len(transparent_df)>0:
     st.write(len(transparent_df)," عدد المباني داخل نطاق 1000 متر مربع متمركز حل النقطة التي تم اختيارها")
