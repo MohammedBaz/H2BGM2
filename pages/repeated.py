@@ -25,7 +25,7 @@ def GetBldFtPrint(RoI):
   fig, ax = plt.subplots()
   #fig=plt.figure()
   transparent_df.plot(ax=ax)
-  transparent_df.plot()
+  #transparent_df.plot()
   
   fig_html = mpld3.fig_to_html(fig)
   with col2:
