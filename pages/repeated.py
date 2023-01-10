@@ -62,12 +62,13 @@ with col1:
   st.write("الرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
   m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
   m.add_child(fl.LatLngPopup())
+    folium.Circle(radius=300,location = [21.437273,40.512714],color='#3388ff',
+                  fill=True).add_to(map)
   map = st_folium(m, height=350, width=350)
   
 try:
   PoI = ee.Geometry.Point(map['last_clicked']['lng'],map['last_clicked']['lat']) # Cast Lat and Long into required class
-  folium.Circle(radius=300,location = [map['last_clicked']['lng'],map['last_clicked']['lat']],color='#3388ff',
-                  fill=True).add_to(map)
+
   
   
   RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
