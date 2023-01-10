@@ -63,7 +63,7 @@ with col1:
   m = fl.Map(location=[21.437273,40.512714],zoom_start=10)
   m.add_child(fl.LatLngPopup())
   fl.Circle(radius=300,location = [21.437273,40.512714],color='#3388ff',
-                  fill=True).add_to(map)
+                  fill=True).add_to(m)
   map = st_folium(m, height=350, width=350)
   
 try:
