@@ -24,6 +24,6 @@ if name == "main":
   fig = plt.figure()
 # fig = plt.figure(figsize=(15,10))
 plt.plot([1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
-plt.xlabel(“Length (nm)”)
-plt.ylabel(“Force (pN)”)
+plt.xlabel("Length (nm)")
+plt.ylabel("Force (pN)")
 st_pyplot(fig)
