@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import mpld3
 import streamlit as st
 import matplotlib.pylab as pylab
-
+from EEBkGr import EEAuth
+EEAuth()
 #create your figure and get the figure object returned
 
 def st_pyplot(fig):
