@@ -66,7 +66,7 @@ with col1:
   st.write("الرجاء الضغط علي الخريطه للحصول علي الخصائص العمرانية")
   map = st_folium(m, height=350, width=350)
 try:
-  session_state.data = map['last_clicked']['lat'],map['last_clicked']['lng']
+  data = map['last_clicked']['lat'],map['last_clicked']['lng']
   PoI = ee.Geometry.Point(map['last_clicked']['lng'],map['last_clicked']['lat']) # Cast Lat and Long into required class
   #st.write(PoI)
   RoI = PoI.buffer(1e3) # Define a region of interest with a buffer zone of 1000 km around PoI.
