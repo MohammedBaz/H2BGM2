@@ -25,4 +25,4 @@ probabilityBands = [
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
 imgListFirst3 = results.toList(3);
-st.write(imgListFirst3.getInfo());
+st.write(imgListFirst3.get(0));
