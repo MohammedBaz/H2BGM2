@@ -10,12 +10,13 @@ enddate=datetime.date.today()
 #start_date, end_date =st.date_input('Enter the date range', min_value=startdate, max_value=enddate,[])
 
 
-start_date, end_date = st.date_input('start date  - end date :', [])
-if start_date < end_date:
-    pass
-else:
-    st.error('Error: Date de fin doit être choisi après la dete de début.')
+#start_date, end_date = st.date_input('start date  - end date :', [])
+#if start_date < end_date:
+#    pass
+#else:
+#    st.error('Error: Date de fin doit être choisi après la dete de début.')
 
+st.slider('How old are you?', startdate, enddate, 25)
 
 
 dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
