@@ -7,10 +7,10 @@ startdate=datetime.date(2015, 6, 23)
 enddate=datetime.date.today()
 #end_date=datetime.date.today()
 #start_date='2015-06-23'
-start_date, end_date =st.date_input('Enter the date range', min_value=startdate, max_value=enddate,[])
+#start_date, end_date =st.date_input('Enter the date range', min_value=startdate, max_value=enddate,[])
 
 
-#start_date, end_date = st.date_input('start date  - end date :', [])
+start_date, end_date = st.date_input('start date  - end date :', [])
 if start_date < end_date:
     pass
 else:
