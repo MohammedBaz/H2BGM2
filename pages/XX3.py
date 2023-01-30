@@ -18,10 +18,11 @@ palette = [
   '#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', 
   '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1'
 ]
-st.write(type(x[1]))
-xx=x[0].strftime("%Y-%m-%d")
-st.write(xx)
-start_date = '2018-07-01'
+#st.write(type(x[1]))
+#xx=x[0].strftime("%Y-%m-%d")
+#st.write(xx)
+#start_date= = '2018-07-01'
+start_date=x[0].strftime("%Y-%m-%d")
 end_date = '2019-08-01'
 st.write(type(end_date))
 
