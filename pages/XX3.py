@@ -4,7 +4,7 @@ import datetime
 startdate=datetime.date(2015, 6, 23)# The earliest date on which the dynamic data is avaiable
 enddate=datetime.date.today() # Today is the last day 
 x = st.slider("Label", startdate, enddate, (startdate, enddate)) # Slider from which the user fed the desired date
-if startdate<=enddate:
+if startdate>=enddate:
   st.error('The end day is higher than strat day ', icon="🚨")
 
 def GetDynamicImage(geometry,start_date,end_date,probability_bands):
