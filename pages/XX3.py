@@ -32,7 +32,7 @@ start_date=x[0].strftime("%Y-%m-%d")
 end_date = x[1].strftime("%Y-%m-%d")
 
 probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
-if startdate<enddate:
+if x[1]<x[0]:
   url=GetDynamicImage(geometry,start_date,end_date,probability_bands)
 else:
   st.error('The end day is higher than strat day ', icon="🚨")
