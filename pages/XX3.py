@@ -20,7 +20,7 @@ palette = [
 ]
 st.write(type(x[1]))
 start_date = '2019-07-01'
-end_date = '2019-07-01'
+end_date = '2018-07-01'
 st.write(type(end_date))
 
 # Filter image collections by time
