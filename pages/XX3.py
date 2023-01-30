@@ -18,6 +18,7 @@ enddate=datetime.date.today()
 
 st.slider('How old are you?', startdate, enddate)
 x = st.slider("Label", startdate, enddate, (startdate, enddate))
+st.write(x[1])
 
 dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
 
