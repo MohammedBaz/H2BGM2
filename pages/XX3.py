@@ -7,8 +7,8 @@ x = st.slider("Label", startdate, enddate, (startdate, enddate)) # Slider from w
 
 def GetDynamicInformation(geometry,start_date,end_date,probability_bands):
   dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
-  
-  palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
+  palette=['#C4281B']
+  #palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
   dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
   dw_time_series = dw_time_interval.select(probability_bands)
   collectionSize = dw_time_series.size().getInfo()
