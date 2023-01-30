@@ -43,3 +43,7 @@ url = top_probability.getThumbURL({
 from IPython.display import Image
 
 Image(url = url)
+st.image(
+            url,
+            width=400, # Manually Adjust the width of the image as per requirement
+        )
