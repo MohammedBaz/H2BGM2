@@ -19,14 +19,10 @@ EndDate='2021-10-1'
 Latitude=21.0807514
 Longitude= 40.2975893
 
-ImageCollectionName='COPERNICUS/S2_HARMONIZED'
 probabilityBands = [
   'water', 'trees', 'grass', 'flooded_vegetation', 'crops', 'shrub_and_scrub',
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
 l8_id = []
-for f in results.getInfo()['features']:
-  image_id = f['properties']
-  st.write(image_id)
-  st.write("*****")
+st.write(results.getInfo())
