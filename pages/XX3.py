@@ -16,7 +16,7 @@ enddate=datetime.date.today()
 #else:
 #    st.error('Error: Date de fin doit être choisi après la dete de début.')
 
-st.slider('How old are you?', startdate, enddate, 25)
+st.slider('How old are you?', startdate, enddate)
 
 
 dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
