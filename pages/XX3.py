@@ -5,7 +5,7 @@ import streamlit as st
 import datetime
 #end_date=datetime.date.today()
 #start_date='2015-06-23'
-start_date, end_date =st.date_input('Enter the date range', min_value=date(2015, 06, 23), max_value=datetime.date.today())
+start_date, end_date =st.date_input('Enter the date range', min_value=date(2015, 6, 23), max_value=datetime.date.today())
 
 
 #start_date, end_date = st.date_input('start date  - end date :', [])
