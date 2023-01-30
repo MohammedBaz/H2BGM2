@@ -7,8 +7,8 @@ x = st.slider("Label", startdate, enddate, (startdate, enddate)) # Slider from w
 
 def GetDynamicInformation(geometry,start_date,end_date,probability_bands):
   dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
-  palette=['#C4281B']
-  #palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
+  
+  palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
   dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
   dw_time_series = dw_time_interval.select(probability_bands)
   collectionSize = dw_time_series.size().getInfo()
@@ -30,8 +30,8 @@ geometry = ee.Geometry.MultiPolygon(
 )
 start_date=x[0].strftime("%Y-%m-%d")
 end_date = x[1].strftime("%Y-%m-%d")
-probability_bands=['built']
-#probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
+
+probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
 
 url=GetDynamicInformation(geometry,start_date,end_date,probability_bands)
 
