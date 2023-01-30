@@ -16,7 +16,7 @@ def GetInformtionFromGoogleEarth(ListofBands,StartDate,EndDate,Latitude,Longitud
   ImageCollectionName1='GOOGLE/DYNAMICWORLD/V1'
   ImageCollection1=ee.ImageCollection(ImageCollectionName1)
   FilteredImageCollections1 = ImageCollection1.filterMetadata('system:index','equals',FInstance.get('system:index').getInfo())
-  withMean = collection.map(setProperty)
+  withMean = FilteredImageCollections1.map(setProperty)
   return withMean
 
 StartDate='2020-10-19'
