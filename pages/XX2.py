@@ -25,4 +25,9 @@ probabilityBands = [
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
-st.write(results)
+l8_id = []
+for f in results.getInfo()['features']:
+  image_id = f['properties']['LANDSAT_SCENE_ID'].encode('ascii', 'ignore')
+  image_id = 'LANDSAT/LC8_L1T/' + image_id
+  l8_id.append(image_id)
+st.write(l8_id)
