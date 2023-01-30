@@ -5,9 +5,8 @@ startdate=datetime.date(2015, 6, 23)# The earliest date on which the dynamic dat
 enddate=datetime.date.today() # Today is the last day 
 x = st.slider("Label", startdate, enddate, (startdate, enddate)) # Slider from which the user fed the desired date
 
-def GetDynamicInformation(geometry,start_date,end_date,probability_bands):
+def GetDynamicImage(geometry,start_date,end_date,probability_bands):
   dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
-  
   palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
   dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
   dw_time_series = dw_time_interval.select(probability_bands)
@@ -33,6 +32,6 @@ end_date = x[1].strftime("%Y-%m-%d")
 
 probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
 
-url=GetDynamicInformation(geometry,start_date,end_date,probability_bands)
+url=GetDynamicImage(geometry,start_date,end_date,probability_bands)
 
 st.image(url)
