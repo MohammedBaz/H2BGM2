@@ -30,7 +30,8 @@ geometry = ee.Geometry.MultiPolygon(
 )
 start_date=x[0].strftime("%Y-%m-%d")
 end_date = x[1].strftime("%Y-%m-%d")
-probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
+probability_bands=['built']
+#probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
 
 url=GetDynamicInformation(geometry,start_date,end_date,probability_bands)
 
