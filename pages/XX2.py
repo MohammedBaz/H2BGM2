@@ -24,4 +24,5 @@ probabilityBands = [
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
-st.write(type(results))
+imgListFirst3 = results.toList(3);
+st.write('First 3 images', imgListFirst3);
