@@ -1,6 +1,11 @@
 import ee 
 import streamlit as st
-t = st.time_input('Set a reminder for')
+start_date = st.date_input('Date de début :')
+end_date = st.date_input('Date de fin :')
+if start_date < end_date:
+    pass
+else:
+    st.error('Error: Date de fin doit être choisi après la dete de début.')
 
 
 
