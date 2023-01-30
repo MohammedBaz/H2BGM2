@@ -24,7 +24,9 @@ probabilityBands = [
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
-st.write(results.count())
+#st.write(results.count())
 #imgListFirst3 = results.toList(3)
 #st.write(imgListFirst3.get(4))
 #st.write(len(imgListFirst3))
+first_image = results.first()
+band = first_image.bandNames().get(0)
