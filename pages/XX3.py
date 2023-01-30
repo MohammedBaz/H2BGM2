@@ -6,7 +6,7 @@ import datetime
 startdate=datetime.date(2015, 6, 23)
 enddate=datetime.date.today()
 x = st.slider("Label", startdate, enddate, (startdate, enddate))
-st.write(x[1],x[0])
+#st.write(x[1],x[0])
 
 dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
 
@@ -23,8 +23,9 @@ palette = [
 #st.write(xx)
 #start_date= = '2018-07-01'
 start_date=x[0].strftime("%Y-%m-%d")
-end_date = '2019-08-01'
-st.write(type(end_date))
+end_date = x[1].strftime("%Y-%m-%d")
+#end_date = '2019-08-01'
+#st.write(type(end_date))
 
 # Filter image collections by time
 dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
