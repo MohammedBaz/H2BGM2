@@ -24,5 +24,4 @@ probabilityBands = [
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
-l8_id = []
-st.write(results.getInfo())
+df = pd.DataFrame(results)
