@@ -1,5 +1,13 @@
 import ee 
 import streamlit as st
+start_date, end_date = st.date_input('start date  - end date :', [])
+        if start_date < end_date:
+            pass
+        else:
+            st.error('Error: End date must fall after start date.')
+
+
+
 dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
 
 probability_bands = [
