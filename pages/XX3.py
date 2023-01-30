@@ -19,6 +19,8 @@ palette = [
   '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1'
 ]
 st.write(type(x[1]))
+xx=x[0].strftime("%m/%d/%Y")
+st.write(xx)
 start_date = '2018-07-01'
 end_date = '2019-08-01'
 st.write(type(end_date))
