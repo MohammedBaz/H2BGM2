@@ -4,8 +4,7 @@ import datetime
 startdate=datetime.date(2015, 6, 23)# The earliest date on which the dynamic data is avaiable
 enddate=datetime.date.today() # Today is the last day 
 x = st.slider("Label", startdate, enddate, (startdate, enddate)) # Slider from which the user fed the desired date
-if startdate>=enddate:
-  st.error('The end day is higher than strat day ', icon="🚨")
+
 
 def GetDynamicImage(geometry,start_date,end_date,probability_bands):
   dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
@@ -33,7 +32,9 @@ start_date=x[0].strftime("%Y-%m-%d")
 end_date = x[1].strftime("%Y-%m-%d")
 
 probability_bands = ['water', 'trees', 'grass', 'flooded_vegetation', 'crops','shrub_and_scrub', 'built', 'bare', 'snow_and_ice',]
-
-url=GetDynamicImage(geometry,start_date,end_date,probability_bands)
+if startdate<enddate:
+  url=GetDynamicImage(geometry,start_date,end_date,probability_bands)
+else:
+  st.error('The end day is higher than strat day ', icon="🚨")
 
 st.image(url)
