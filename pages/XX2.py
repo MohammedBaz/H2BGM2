@@ -29,3 +29,4 @@ l8_id = []
 for f in results.getInfo()['features']:
   image_id = f['properties']
   st.write(image_id)
+  st.write("*****")
