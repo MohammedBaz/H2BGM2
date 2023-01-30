@@ -11,6 +11,8 @@ def GetDynamicInformation(geometry,start_date,end_date):
   palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
   dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
   dw_time_series = dw_time_interval.select(probability_bands)
+  collectionSize = dw_time_series.size().getInfo()
+  st.write(collectionSize)
   mean_probability = dw_time_series.reduce(ee.Reducer.mean())
   mean_probability=mean_probability.clip(geometry)  
   top_probability = mean_probability.toArray().arrayArgmax().arrayGet(0).rename('label')      
