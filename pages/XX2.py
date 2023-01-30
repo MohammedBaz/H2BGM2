@@ -24,4 +24,4 @@ probabilityBands = [
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
-df = pd.DataFrame(results)
+df = pandas.DataFrame(results)
