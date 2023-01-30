@@ -24,4 +24,4 @@ probabilityBands = [
   'built', 'bare', 'snow_and_ice'
 ]
 results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude,Longitude)
-st.write(results[0].getInfo())
+st.write(type(results))
