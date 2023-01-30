@@ -1,4 +1,5 @@
 import ee 
+import streamlit as st
 dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
 
 probability_bands = [
