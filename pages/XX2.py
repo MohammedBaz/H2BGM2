@@ -30,4 +30,5 @@ results=GetInformtionFromGoogleEarth(probabilityBands,StartDate,EndDate,Latitude
 #st.write(len(imgListFirst3))
 first_image = results.first()
 band = first_image.bandNames().get(0)
-st.write(band)
+#st.write(band)
+st.write(band.reduce(ee.Reducer.count()))
