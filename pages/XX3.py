@@ -18,9 +18,9 @@ palette = [
   '#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', 
   '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1'
 ]
-
-start_date = x[0]
-end_date = x[1]
+st.write(type(x[1])
+start_date = '2019-04-01'
+end_date = '2019-07-01'
 
 # Filter image collections by time
 dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
