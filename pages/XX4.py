@@ -28,8 +28,6 @@ end_date = x[1].strftime("%Y-%m-%d")
 
 probability_bands = [ 'built']
 if x[1]!=x[0]:
-  url=GetDynamicImage(geometry,start_date,end_date,probability_bands)
- 
-  st.image(url)
+  GetDynamicImage(geometry,start_date,end_date,probability_bands)
 else:
   st.error('The end day cannot be lower than the strat day ', icon="🚨")
