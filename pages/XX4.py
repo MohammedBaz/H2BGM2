@@ -10,18 +10,19 @@ def GetDynamicImage(geometry,start_date,end_date,probability_bands):
   dw = ee.ImageCollection('GOOGLE/DYNAMICWORLD/V1')
   palette = ['#419BDF', '#397D49', '#88B053', '#7A87C6', '#E49635', '#DFC35A', '#C4281B', '#A59B8F', '#B39FE1']
   dw_time_interval = dw.filter(ee.Filter.date(start_date, end_date))
-  dw_time_series = dw_time_interval.select(probability_bands).limit(24)
+  dw_time_series = dw_time_interval.select(probability_bands)
   collectionSize = dw_time_series.size().getInfo()
   mean_probability = dw_time_series.reduce(ee.Reducer.mean())
   mean_probability=mean_probability.clip(geometry)  
-  top_probability = mean_probability.toArray().arrayArgmax().arrayGet(0).rename('label')      
-  url = top_probability.getThumbURL({
-    'region': geometry,
-    'dimensions':'300',
-    'min': 0,
-    'max': 8,
-    'palette': palette,
-    'format': 'png'})
+  top_probability = mean_probability.toArray().arrayArgmax().arrayGet(0).rename('label')  
+  
+  url = top_probability.getFilmstripThumbURL({
+    dimensions: 128,
+    region: geometry,
+    crs: 'EPSG:3857',
+    min: -40.0,
+    max: 35.0,
+    palette: ['blue', 'purple', 'cyan', 'green', 'yellow', 'red']});
   return url
 
 geometry = ee.Geometry.MultiPolygon(
