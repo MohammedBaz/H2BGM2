@@ -36,6 +36,6 @@ if x[1]!=x[0]:
   url=GetDynamicImage(geometry,start_date,end_date,probability_bands)
   st.image(url)
 else:
-  st.error('The end day is higher than strat day ', icon="🚨")
+  st.error('The end day cannot be lower than the strat day ', icon="🚨")
 
 
