@@ -16,7 +16,7 @@ def GetDynamicImage(geometry,start_date,end_date,probability_bands):
   mean_probability=mean_probability.clip(geometry)  
   top_probability = mean_probability.toArray().arrayArgmax().arrayGet(0).rename('label')  
   
-  url = top_probability.getFilmstripThumbURL({
+  url = dw_time_series.getFilmstripThumbURL({
     dimensions: 128,
     region: geometry,
     crs: 'EPSG:3857',
