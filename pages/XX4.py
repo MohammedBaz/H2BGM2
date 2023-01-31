@@ -17,12 +17,12 @@ def GetDynamicImage(geometry,start_date,end_date,probability_bands):
   top_probability = mean_probability.toArray().arrayArgmax().arrayGet(0).rename('label')  
   
   url = dw_time_series.getFilmstripThumbURL({
-    dimensions: 128,
-    region: geometry,
-    crs: 'EPSG:3857',
-    min: -40.0,
-    max: 35.0,
-    palette: ['blue', 'purple', 'cyan', 'green', 'yellow', 'red']});
+    'dimensions': 128,
+    'region': geometry,
+    'crs': 'EPSG:3857',
+    'min': -40.0,
+    'max': 35.0,
+    'palette': ['blue', 'purple', 'cyan', 'green', 'yellow', 'red']});
   return url
 
 geometry = ee.Geometry.MultiPolygon(
